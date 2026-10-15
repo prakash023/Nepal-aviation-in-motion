@@ -1,127 +1,364 @@
-# Nepal Aviation in Motion
+# **Nepal Aviation in Motion**
 
-A terrain-aware animation of historical aircraft movements across Nepal and the Himalayan region, covering 14–16 September 2026 (Nepal Standard Time, NPT).
+# 
 
-The renderer creates a GIF with a dedicated header above the map, terrain shading, Nepal's boundary, airport markers, aircraft positions, and flight trails. Flight paths may extend up to 40 km beyond Nepal's boundary and fade out progressively.
+# **A terrain-aware animation of historical aircraft movements across Nepal and the Himalayan region, covering 14–16 September 2026 (Nepal Standard Time, NPT).**
 
-![Nepal Aviation in Motion preview](images/preview.png)
+# 
 
-## What you need
+# **The renderer creates an animated GIF with a dedicated header above the map, terrain shading, Nepal's boundary, airport markers, aircraft positions, and flight trails. Flight paths may extend up to 40 km beyond Nepal's boundary and fade out progressively.**
 
-- **Windows 10/11 (the current renderer uses Windows paths)
-- **Python 3.13 — [official Python downloads](https://www.python.org/downloads/)
-- **Git** (optional, if you want to clone the repository) — [official Git downloads](https://git-scm.com/downloads)
-- FFmpeg — [official FFmpeg download page](https://ffmpeg.org/download.html). Install a Windows build and add its `bin` directory to your `PATH` so `ffmpeg -version` works in PowerShell.
-- The three input data files listed in [Input data](#input-data)
+# 
 
-## Installation
+# **Animation Preview**
 
-### 1. Get the project
+# 
 
-Either download the repository as a ZIP from GitHub and extract it, or use Git:
+# 
 
-```powershell
-git clone https://github.com/YOUR-USERNAME/nepal-aviation-in-motion.git
-cd nepal-aviation-in-motion
-```
+# 
 
-Run these commands from the project root:
+# **Preview Images**
 
-```powershell
-py -3.13 -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-```
+# 
 
-If PowerShell blocks activation, you can skip activation and use the environment's Python directly:
+# **Historical Aviation Visualization**
 
-```powershell
-.\.venv\Scripts\python.exe -m pip install --upgrade pip
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-```
+# 
 
-### 3. Check FFmpeg
+# 
 
-Open a new PowerShell window and run:
+# 
 
-```powershell
-ffmpeg -version
-```
+# **Editorial Preview**
 
-If PowerShell says that `ffmpeg` is not recognized, install FFmpeg and add its `bin` folder to `PATH`, then reopen PowerShell.
+# 
 
-## Input data
+# 
 
-The animation cannot be generated from the code alone. You must obtain the required source data separately and ensure you have permission to use it.
+# 
 
-The current script expects these files on the original Windows setup:
+# **Features**
 
-```text
-I:\ForgeD\NepalAviation\data\september_2026\september_2026_trajectories_only.csv
-I:\ForgeD\NepalAviation\data\boundary\nepal_boundary.geojson
-I:\ForgeD\Traffic_visualisation\data\terrain\nepal_dem_clipped.tif
-```
+# 
 
-- Trajectory CSV: historical aircraft positions for September 2026. Use the same schema expected by the renderer.
-- Nepal boundary GeoJSON: polygon boundary used for clipping and the 40 km fade-out area.
-- Nepal DEM GeoTIFF: terrain raster used for the shaded-relief background.
+# **Historical aircraft trajectory visualization**
 
-These datasets are not included in this repository. Check the original providers' licences and redistribution terms before sharing or publishing them.
+# 
 
-### Important: configure your paths
+# **Terrain-aware map of Nepal and the Himalayan region**
 
-The current renderer has the original author's Windows paths hard-coded near the top of `scripts/v3_animate_nepal_aviation_3days_40km_fade.py`, in the `PROJECT` and `DATA` variables. Before running it on another computer, edit those variables and make sure the three input files exist at the resulting paths. The output GIF is written to the `output` directory under `PROJECT`.
+# 
 
-This path setup is a limitation of the current version; the project is not yet fully portable just by cloning the repository and installing requirements.
+# **Shaded-relief terrain background**
 
-## Run the animation
+# 
 
-From the project root, with the virtual environment activated and the data paths configured, run:
+# **Nepal national boundary and airport markers**
 
-```powershell
-python .\scripts\v3_animate_nepal_aviation_3days_40km_fade.py
-```
+# 
 
-The script writes:
+# **Aircraft positions and flight trails**
 
-```text
-nepal_aviation_sep14_16_40km_fade.gif
-```
+# 
 
-inside the configured `PROJECT\output` directory. Rendering may take some time and requires enough free disk space for temporary video and GIF files.
+# **Flight paths extending beyond the national boundary with progressive fading**
 
-## Project structure
+# 
 
-```text
-nepal-aviation-in-motion/
-├── README.md
-├── requirements.txt
-├── .gitignore
-├── scripts/
-├   ── download_nepal_dem_tiles.py
-│   └── v3_animate_nepal_aviation_3days_40km_fade.py
-├── images/
-│   └── preview.png
-└── animation/
-    └── nepal_aviation_sep14_16_40km_fade.gif  # add your rendered GIF here
-```
+# **Animated visualization of three days of flight activity**
 
-## Notes
+# 
 
-- This is a visualization of historical data, not a live air-traffic tracking service.
-- The preview image is illustrative; replace it with a frame from the final animation if you prefer.
-- Large trajectory CSVs and DEM rasters are intentionally excluded from the repository.
-- The repository's Python package list is in [`requirements.txt`](requirements.txt).
+# **Python-based geospatial processing and rendering**
 
+# 
 
+# **Project Structure**
 
-## Acknowledgements & Inspiration
+# 
 
-This project was inspired by the creative work of geospatial visualization artists and developers, as well as other projects shared by the GIS, mapping, and data visualization communities.
+# **nepal-aviation-in-motion/**
 
-These examples motivated me to explore new ways of visualizing aviation movements by combining historical flight data, Python, geospatial analysis, and 3D terrain across Nepal and the Himalayas.
+# **├── README.md**
 
-Nepal Aviation in Motion is an independent project developed to explore and visualize Nepal's aviation activity.
+# **├── requirements.txt**
 
-All original creators deserve credit for their respective work. Any code, data, or assets reused from other projects will be credited separately where applicable.
+# **├── .gitignore**
+
+# **├── images/**
+
+# **│   ├── nepal\_aviation\_sep14\_16\_40km\_fade.gif**
+
+# **│   ├── nepal\_aviation\_september\_2026\_red\_spider\_preview.png**
+
+# **│   └── nepal\_aviation\_v27\_editorial\_preview.png**
+
+# **└── scripts/**
+
+# &#x20;   **├── download\_nepal\_dem\_tiles.py**
+
+# &#x20;   **└── v3\_animate\_nepal\_aviation\_3days\_40km\_fade.py**
+
+# 
+
+# **Technologies**
+
+# 
+
+# **Python**
+
+# 
+
+# **NumPy**
+
+# 
+
+# **Pandas**
+
+# 
+
+# **Matplotlib**
+
+# 
+
+# **Rasterio**
+
+# 
+
+# **Shapely**
+
+# 
+
+# **PyProj**
+
+# 
+
+# **Pillow**
+
+# 
+
+# **FFmpeg**
+
+# 
+
+# **See requirements.txt for the Python package list.**
+
+# 
+
+# **Installation**
+
+# 
+
+# **1. Install Python**
+
+# 
+
+# **Install Python 3.13 from the official website:**
+
+# 
+
+# **https://www.python.org/downloads/**
+
+# 
+
+# **During installation on Windows, enable the option to add Python to PATH if available.**
+
+# 
+
+# **2. Install FFmpeg**
+
+# 
+
+# **FFmpeg is used for video and animation processing.**
+
+# 
+
+# **Official download and installation instructions:**
+
+# 
+
+# **https://ffmpeg.org/download.html**
+
+# 
+
+# **After installation, ensure that FFmpeg is available on your system PATH.**
+
+# 
+
+# **3. Clone the repository**
+
+# 
+
+# **Install Git if necessary:**
+
+# 
+
+# **https://git-scm.com/downloads**
+
+# 
+
+# **Then open PowerShell or a terminal and run:**
+
+# 
+
+# **git clone https://github.com/prakash023/Nepal-aviation-in-motion.git**
+
+# **cd Nepal-aviation-in-motion**
+
+# 
+
+# **4. Create a virtual environment**
+
+# 
+
+# **On Windows:**
+
+# 
+
+# **py -3.13 -m venv .venv**
+
+# **.\\.venv\\Scripts\\Activate.ps1**
+
+# 
+
+# **If PowerShell blocks activation, you can install packages using the environment's Python executable directly instead.**
+
+# 
+
+# **5. Install Python dependencies**
+
+# 
+
+# **python -m pip install --upgrade pip**
+
+# **pip install -r requirements.txt**
+
+# 
+
+# **Data Requirements**
+
+# 
+
+# **The large source datasets are not included in this repository. Users must obtain the required data separately.**
+
+# 
+
+# **The animation requires:**
+
+# 
+
+# **Aircraft trajectories: the historical flight-position CSV dataset for the selected period**
+
+# 
+
+# **Nepal boundary: a GeoJSON or equivalent boundary dataset**
+
+# 
+
+# **Digital Elevation Model (DEM): terrain elevation data covering Nepal and the surrounding Himalayan region**
+
+# 
+
+# **Use data sources that permit your intended use, and follow their attribution and redistribution requirements.**
+
+# 
+
+# **Downloading the DEM**
+
+# 
+
+# **A Python downloader is included:**
+
+# 
+
+# **scripts/download\_nepal\_dem\_tiles.py**
+
+# 
+
+# **Review the script to understand its data source, output directory, and any required configuration before running it.**
+
+# 
+
+# **Run it from the repository root:**
+
+# 
+
+# **python scripts/download\_nepal\_dem\_tiles.py**
+
+# 
+
+# **The downloader's output paths may need to be configured for your computer. The DEM must be available at the location expected by the renderer before generating an animation.**
+
+# 
+
+# **Generate the Animation**
+
+# 
+
+# **After obtaining the required datasets and configuring their paths, run:**
+
+# 
+
+# **python scripts/v3\_animate\_nepal\_aviation\_3days\_40km\_fade.py**
+
+# 
+
+# **The renderer processes the input data and generates an animation. Output location and rendering settings are defined in the Python script.**
+
+# 
+
+# **Note: The current scripts may contain machine-specific file paths. Review and adjust those paths for your own environment before running the workflow.**
+
+# 
+
+# **Acknowledgements and Inspiration**
+
+# 
+
+# **This project was inspired by the creative work of geospatial visualization artists and developers, including Milos GIS, as well as other projects shared by the GIS, mapping, and data visualization communities.**
+
+# 
+
+# **These examples motivated me to explore ways of visualizing aviation movements by combining historical flight data, Python, geospatial analysis, and terrain across Nepal and the Himalayas.**
+
+# 
+
+# **Nepal Aviation in Motion is an independent project focused on Nepal's aviation activity. Inspiration does not imply direct collaboration or endorsement.**
+
+# 
+
+# **Any third-party code, datasets, or assets reused in the project should be credited separately, in accordance with their licences.**
+
+# 
+
+# **Limitations**
+
+# 
+
+# **The animation represents historical data for the specified period; it is not a live air-traffic tracking service.**
+
+# 
+
+# **Flight coverage depends on the completeness and quality of the underlying dataset.**
+
+# 
+
+# **Terrain and boundary accuracy depend on the source datasets.**
+
+# 
+
+# **Reproducing the animation requires obtaining the necessary input data and configuring local paths.**
+
+# 
+
+# **Licence**
+
+# 
+
+# **A project licence has not yet been specified. Until one is added, do not assume that the project's code, images, or third-party data may be freely reused. Check the relevant data and software licences before redistribution.**
+
+# 
+
+# **Created as an independent GIS, Python, and geospatial visualization project exploring Nepal's aviation activity.**
+
