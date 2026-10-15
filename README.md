@@ -10,12 +10,7 @@ The map shows the aircraft positions and flight trails over a shaded-relief view
   <img src="images/nepal_aviation_sep14_16_40km_fade.gif" alt="Nepal Aviation in Motion" width="800">
 </p>
 
-### A few previews
 
-<p align="center">
-  <img src="images/nepal_aviation_september_2026_red_spider_preview.png" alt="Aviation radar preview" width="48%">
-  <img src="images/nepal_aviation_v27_editorial_preview.png" alt="Terrain visualization preview" width="48%">
-</p>
 
 ### How it was built
 
