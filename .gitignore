@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.nc
+*.tif
+*.tiff
+*.csv
+*.mp4
